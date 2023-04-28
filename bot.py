@@ -14,18 +14,16 @@ dp = Dispatcher(bot=bot)
 
 @dp.message_handler(commands=['start'])
 async def send_start(message: types.Message):
-    button1 = types.KeyboardButton('Узнать')
-    button2 = types.KeyboardButton('Добавить')
-    button3 = types.KeyboardButton('Удалить')
+    button1 = types.KeyboardButton('Узнать рецепты')
     mark = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(
-        button1, button2, button3
+        button1
     )
     await message.reply("Привет! Что ты хочешь сделать?", reply_markup=mark)
 
 # ------------------------------------------
 # This part allows to get the recipes
 # ------------------------------------------
-@dp.message_handler(text=['Узнать'])
+@dp.message_handler(text=['Узнать рецепты'])
 async def get_tags(message: types.Message):
 
     # This function allows to get a list of tags
