@@ -61,11 +61,11 @@ async def get_recipes(message: types.Message):
             names_url_dict[name_item] = url_item
             names.append(name_item)
 
-    markup_names = types.InlineKeyboardButton(names[0], url = names_url_dict.get(names[0])) #, callback_data='name') #для url кнопок коллбек не нужен
+    markup_names = types.InlineKeyboardButton(names[0], url = names_url_dict.get(names[0]))
     inline_names = types.InlineKeyboardMarkup(row_width=2).add(markup_names)
     if len(names) > 1:
         for name in names[1:]:
-            inline_names.add(types.InlineKeyboardButton(name, url = names_url_dict.get(name))) #, callback_data='name')) #для url кнопок коллбек не нужен
+            inline_names.add(types.InlineKeyboardButton(name, url = names_url_dict.get(name)))
 
     await message.reply("Выбери рецепт", reply_markup=inline_names)
 
