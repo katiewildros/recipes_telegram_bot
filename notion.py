@@ -56,15 +56,6 @@ def create_page(data: dict):
     print(res.status_code)
     return res
 
-url = "Test Url 2"
-name_item = "Test food"
-tags_json = "завтрак"
-data = {
-    "URL": {"url": url},
-    "Name":{"title":[{"text": {"content": name_item}}]},
-    "Tags": {"multi_select": [{"name": tags_json}]}
-    }
-
 def update_page(page_id: str, data: dict):
     url = f"https://api.notion.com/v1/pages/{page_id}"
 
